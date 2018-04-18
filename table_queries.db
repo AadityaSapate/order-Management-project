@@ -1,0 +1,45 @@
+Table name -> pdetail 
+        
+        Stores details of product such product name , product price , product position
+
+sql query ->
+
+
+  CREATE TABLE `pdetail` (
+  `pName` varchar(255) NOT NULL,
+  `price` int(11) NOT NULL,
+  `position` varchar(255) NOT NULL,
+  PRIMARY KEY (`pName`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1	
+      
+
+
+Table name -> porder 
+
+      stores details about orders such product name and quantity
+
+sql query ->
+
+  CREATE TABLE `porder` (
+  `pName` varchar(255) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  KEY `pName` (`pName`),
+  CONSTRAINT `porder_ibfk_1` FOREIGN KEY (`pName`) REFERENCES `pdetail` (`pName`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1	
+      
+
+Table name -> user 
+   
+        Stores users information such users id, name, emailid, password 
+
+sql query ->
+	
+  CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `pass` varchar(255) NOT NULL,
+  PRIMARY KEY (`email`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1	
+        
